@@ -1,0 +1,39 @@
+<div #container class="full-height hidden">
+      <h2 class="block-title">
+            <i class="fas fa-arrow-left" [routerLink]="['/Territorios']"></i>
+            &nbsp; Tablero
+      </h2>
+      <img #imageContainer class="board-title" src="assets/images/board-header.png" [style.height]="imageHeight + 'px'" />
+      <div #menuContainer class="board-menu-container" [style.height]="menuHeight + 'px'">
+            <div [style.height]="optionHeight + 'px'" class="board-option border-bottom" (click)="checkImage('Vida y Ministerio')">
+                  <img class="img" src="assets/images/life.png" />
+                  <label [style.margin]="marginLabel + 'px 0'">Vida y Ministerio
+                        <!--<img [style.height]="menuOption.offsetHeight + 'px'" src="assets/images/arrow-right.png" class="board-arrow">-->
+                  </label>
+            </div>
+            <div [style.height]="optionHeight + 'px'" class="board-option border-bottom" (click)="checkImage('Reunión Publica')">
+                  <img class="img" src="assets/images/public.png" />
+                  <label [style.margin]="marginLabel + 'px 0'">Reunión Publica
+                        <!--<img [style.height]="menuOption.offsetHeight + 'px'" src="assets/images/arrow-right.png" class="board-arrow">-->
+                  </label>
+            </div>
+            <div [style.height]="optionHeight + 'px'" class="board-option border-bottom" (click)="checkImage('Privilegios')">
+                  <img class="img" src="assets/images/priv.png" />
+                  <label [style.margin]="marginLabel + 'px 0'">Privilegios
+                        <!--<img [style.height]="menuOption.offsetHeight + 'px'" src="assets/images/arrow-right.png" class="board-arrow">-->
+                  </label>
+            </div>
+            <div [style.height]="optionHeight + 'px'" class="board-option border-bottom" (click)="checkImage('Aseo')">
+                  <img class="img" src="assets/images/clean.png" />
+                  <label [style.margin]="marginLabel + 'px 0'">Aseo
+                        <!--<img [style.height]="menuOption.offsetHeight + 'px'" src="assets/images/arrow-right.png" class="board-arrow">-->
+                  </label>
+            </div>
+            <div [style.height]="optionHeight + 'px'" class="board-option border-bottom" (click)="checkImage('Predicación con Exhibidores')">
+                  <img class="img" src="assets/images/exh.png" />
+                  <label [style.margin]="marginLabel + 'px 0'">Predicación con Exhibidores
+                        <!--<img [style.height]="menuOption.offsetHeight + 'px'" src="assets/images/arrow-right.png" class="board-arrow">-->
+                  </label>
+            </div>
+      </div>
+</div>

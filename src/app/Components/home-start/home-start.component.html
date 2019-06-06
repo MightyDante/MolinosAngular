@@ -1,0 +1,31 @@
+<div #menuContainer class="menu">
+	<div (click)="checkImage('Mapa')" [style.width]="menuContainer.offsetWidth / 3 + 'px'" [style.height]="menuContainer.offsetWidth / 3 + 'px'" class="map">
+		<img [style.width]="menuContainer.offsetWidth / 3 - 40 + 'px'" [style.height]="menuContainer.offsetWidth / 3 - 40 + 'px'" src="assets/menu/map.png" />
+		<label>Mapa</label>
+	</div>
+	<div (click)="checkImage('Predicacion')" [style.width]="menuContainer.offsetWidth / 3 + 'px'" [style.height]="menuContainer.offsetWidth / 3 + 'px'" class="preach">
+		<img [style.width]="menuContainer.offsetWidth / 3 - 40 + 'px'" [style.height]="menuContainer.offsetWidth / 3 - 40 + 'px'" src="assets/menu/preach.png" />
+		<label>Predicación</label>
+	</div>
+	<div [style.width]="menuContainer.offsetWidth / 3 + 'px'" [style.height]="menuContainer.offsetWidth / 3 + 'px'" class="inform" [routerLink]="['/Informe']">
+		<img [style.width]="menuContainer.offsetWidth / 3 - 40 + 'px'" [style.height]="menuContainer.offsetWidth / 3 - 40 + 'px'" src="assets/menu/inform.png" />
+		<label>Informe</label>
+	</div>
+</div>
+<div class="options">
+	<div class="blocks">
+		<div>Territorios</div>
+	</div>
+	<div class="board" [routerLink]="['/Tablero']">
+		<div>Tablero</div>
+	</div>
+</div>
+<div #blocksContainer class="blocks-container">
+	<div [style.width]="blocksContainer.offsetWidth / 3 - 5 + 'px'" [style.height]="blocksContainer.offsetWidth / 3 - 5 + 'px'" *ngFor="let block of blocks; let i = index" class="block-button" (click)="seeDetail(i+1)">
+		<img src="assets/images/logo.png" class="logo">
+		<img src="assets/images/arrow.png" class="arrow">
+		<div #numberContainer class="number parentbox">
+			<div [style.margin-left]="i < 9 ? '-5px' : '-10px'" [style.font-size]="i < 9 ? numberContainer.offsetHeight * 0.6 + 'px' : numberContainer.offsetHeight * 0.5 + 'px'" class="childbox">{{i+1}}</div>
+		</div>
+	</div>
+</div>

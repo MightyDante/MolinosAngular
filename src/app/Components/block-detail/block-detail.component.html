@@ -1,0 +1,53 @@
+<div class="block-detail">
+	<h2 class="block-title">
+		<i class="fas fa-arrow-left" [routerLink]="['/Territorios']"></i>
+		&nbsp; Territorio {{territoryNumber}}
+		<i *ngIf="noPassing" (click)="showNoPassingAddresses()" class="fas fa-user-slash block-address-icon"></i>
+	</h2>
+	<img *ngIf="!loaded" [style.height]="image.offsetWidth + 'px'" class="block-image" src="assets/blocks/prev/terr{{territoryNumber}}prev.png">
+	<img #image [(style.position)]="position" [(style.height)]="imageHeight" [(style.margin-top)]="marginTop" class="block-image" src="assets/blocks/terr{{territoryNumber}}.png" (load)="imageLoaded()">
+	<form name="form" (ngSubmit)="submitData()" #f="ngForm" class="background" style="padding-bottom: 15px;padding-top: 1px;">
+		<div class="form-group name shadow">
+			<input type="text" class="form-control center" name="name" [(ngModel)]="model.name" placeholder="Nombre y Apellido" #name="ngModel" maxlength="30" style="height: 100%" required />
+		</div>
+		<div class="form-group date-container shadow">
+			<i class="far fa-calendar calendar-icon"></i>
+			<label class="label-date" (click)="selectDate()">{{model.labelDate}}</label>
+		</div>
+		<div class="time-container form-group shadow" [ngClass]="{'morning': !this.model.time, 'afternoon': this.model.time}">
+			<label class="morning">
+				Mañana
+			</label>
+			<label class="switch">
+				<input type="checkbox" name="time" [(ngModel)]="model.time" #date="ngModel">
+				<span class="slider round"></span>
+			</label>
+			<label class="afternoon">
+				Tarde
+			</label>
+		</div>
+		<div class="check-container shadow">
+			<div>
+				<label style=" font-size: 16px; ">Manzanas Trabajadas</label>
+				<input class="check-all" *ngIf="!allCheck" type="button" (click)="checkAll()" value="TODAS" />
+				<input class="check-all" *ngIf="allCheck" type="button" (click)="checkAll()" value="DESELECCIONAR" />
+
+			</div>
+			<div class="check-blocks">
+				<div *ngFor="let block of blocks; let i = index" class="block">
+					<input type="checkbox" id="block{{i}}" name="block{{i}}" [(ngModel)]="model.block[i]" (change)="saveBlocks()" style="display: none;">
+					<label for="block{{i}}" class="check" style="margin-left: 11px;">
+						<svg width="18px" height="18px" viewBox="0 0 18 18">
+							<path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+							<polyline points="1 9 7 14 15 4"></polyline>
+						</svg>
+					</label>
+					<p style=" display: inline; margin: 5px; margin-top: -2px; position: absolute; ">{{i+1}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="send-button shadow">
+			<input class="submit-blocks" type="submit" value="ENVIAR" />
+		</div>
+	</form>
+</div>

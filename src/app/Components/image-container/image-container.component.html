@@ -1,0 +1,12 @@
+<div class="full-height">
+	<h2 class="block-title">
+		<i class="fas fa-arrow-left" (click)="return()"></i>
+		&nbsp; {{image}}
+	</h2>
+	<img *ngIf="!loaded" [style.height]="'93vh'" class="block-image" src="assets/{{image}}prev.png">
+	<div class="panzoom">
+		<img #imageContainer [(style.position)]="position" [(style.height)]="imageHeight" [(style.margin-top)]="marginTop" class="block-image"
+		      src="assets/{{image}}.png" (load)="imageLoaded()">
+	</div>
+
+</div>

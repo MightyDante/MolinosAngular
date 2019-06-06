@@ -1,0 +1,32 @@
+<div class="block-detail">
+	<h2 class="block-title">
+		<i class="fas fa-arrow-left" [routerLink]="['/Territorios']"></i>
+		&nbsp; Admin
+	</h2>
+	<img [style.height]="'0px'" style="margin-top: 60px">
+
+	<form name="form" (ngSubmit)="sendImage()" #f="ngForm">
+
+		<div class="form-group" style=" background-color: #00325a; ">
+			<label for="name" style="margin: 0;color: white;padding: 15px;font-size: 18px;width: 30%;">
+				<strong>Sección</strong>
+			</label>
+			<select class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" style="width: 40%;display:  initial;">
+				<option [value]="null" disabled>Seleccione</option>
+				<option value="Predicacion">Predicacíon</option>
+				<option value="Vida y Ministerio">Vida y Ministerio</option>
+				<option value="Reunión Publica">Reunión Publica</option>
+				<option value="Privilegios">Privilegios</option>
+				<option value="Aseo">Aseo</option>
+				<option value="Predicación con Exhibidores">Predicación con Exhibidores</option>
+			</select>
+			<div *ngIf="f.submitted && !name.valid" class="alertRequired alert alert-danger" style="width: auto;height: 27px;margin:  0;padding: 0;">Seleccione una sección </div>
+		</div>
+		<div class="form-group">
+			<input #inputFile type="file" class="form-control" (change)="getImage($event)" style="width: 100%;" />
+		</div>
+		<div>
+			<input class="submit-blocks" type="submit" value="SUBIR" />
+		</div>
+	</form>
+</div>

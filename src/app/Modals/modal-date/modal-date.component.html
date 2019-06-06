@@ -1,0 +1,7 @@
+<ngb-datepicker #dp [(ngModel)]="model" style="width: 100%;border: 0;" ></ngb-datepicker>
+
+<div class="datapicker-footer">
+	<button class="btn btn-primary btn-sm m-2 float-left shadow" (click)="dp.navigateTo();getToday()">Hoy</button>
+	<button class="main-color btn btn-secondary btn-sm m-2 float-right ready-button shadow" (click)="activeModal.close(model)">Listo</button>
+	<button [hidden]="true" #currentMonth class="btn btn-secondary btn-sm m-2 float-right" (click)="dp.navigateTo({year: date.year, month: date.month})">MONTH</button>
+</div>

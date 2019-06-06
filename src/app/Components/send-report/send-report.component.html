@@ -1,0 +1,9 @@
+<div class="send-report">
+	<h2 class="block-title">
+		<i class="fas fa-arrow-left" [routerLink]="['/Territorios']"></i>
+		&nbsp; Informe de Servicio
+		<i *ngIf="noPassing" (click)="showNoPassingAddresses()" class="fas fa-user-slash block-address-icon"></i>
+	</h2>
+	<img src="assets/icons/person.png" class="person-icon" />
+	<div class="check-container"></div>
+</div>

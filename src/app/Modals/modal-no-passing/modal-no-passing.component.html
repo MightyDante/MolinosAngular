@@ -1,0 +1,11 @@
+<div class="modal-header">
+	<strong>Direcciones No Pasar</strong>
+</div>
+<div class="modal-body">
+	<div *ngFor="let address of addresses; let i = index">
+		{{address.direccion}}
+	</div>
+</div>
+<div>
+	<button type="button" class="btn btn-primary btn-sm m-2 float-right main-color" (click)="activeModal.close('Close click')">OK</button>
+</div>
